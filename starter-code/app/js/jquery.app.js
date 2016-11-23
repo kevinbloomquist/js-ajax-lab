@@ -22,8 +22,9 @@ var ajax = $.get('https://ga-cat-rescue.herokuapp.com/api/cats')
 var objList = jQuery.parseJSON(ajax.responseText);
 
 for(i=0; i<objList.length; i++) {
+	var fullList= $('#cats').append("<li>"+objList[i].name+"</li>");
 	console.log(objList[i]);
-	
+
 }
 
 });
