@@ -28,3 +28,12 @@ for(i=0; i<objList.length; i++) {
 }
 
 });
+var catName = $("#cat-name").val();
+var catNote = $("#cat-note").val();
+console.log(catName);
+console.log(catNote);
+var myCat = new Object();
+myCat.name = catName;
+myCat.note = catNote;
+var catString = JSON.stringify(myCat);
+console.log(catString);
