@@ -45,6 +45,7 @@ console.log(myCat);
 
 
 var catString = JSON.stringify(myCat);
-$.POST('https://ga-cat-rescue.herokuapp.com/api/cats/'+ catString);
-console.log(catString);
+$.post('https://ga-cat-rescue.herokuapp.com/api/cats', catString);
 });
+
+console.log(catString);
