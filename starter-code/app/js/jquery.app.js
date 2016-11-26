@@ -3,14 +3,14 @@
 
 
 
-var ajax = $.get('https://ga-cat-rescue.herokuapp.com/api/cats/1')
+/*var ajax = $.get('https://ga-cat-rescue.herokuapp.com/api/cats/1')
 .done(function (data) {
 	var cat1 = ajax.responseText;
 	var catOne = jQuery.parseJSON(cat1);
 	var $listItem = $('#cats').append("<li>"+catOne.name+"</li>");
 	console.log(catOne.name);
 
-});
+});*/
 
 
 // One cat name**************************************************above
@@ -28,12 +28,23 @@ for(i=0; i<objList.length; i++) {
 }
 
 });
-var catName = $("#cat-name").val();
-var catNote = $("#cat-note").val();
+document.getElementById('submitButton').addEventListener('click',function(){
+
+event.preventDefault();
+var catName = document.getElementById("cat-name").value;
+var catNote = document.getElementById("cat-note").value;
 console.log(catName);
 console.log(catNote);
-var myCat = new Object();
+
+var myCat = new Object()
 myCat.name = catName;
 myCat.note = catNote;
+
+console.log(myCat);
+
+
+
 var catString = JSON.stringify(myCat);
+$.POST('https://ga-cat-rescue.herokuapp.com/api/cats/'+ catString);
 console.log(catString);
+});
