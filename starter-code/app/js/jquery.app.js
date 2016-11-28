@@ -45,7 +45,20 @@ console.log(myCat);
 
 
 var catString = JSON.stringify(myCat);
-$.post('https://ga-cat-rescue.herokuapp.com/api/cats', catString);
+console.log(catString);
+
+// changed Sunday night - created: var postCat and added function putCat to append
+var postCat = $.post('https://ga-cat-rescue.herokuapp.com/api/cats', catString, function putCat(){
+	$("#cat-name").append(postCat.responseText.name);
+	console.log(postCat.responseText);
+/* ZEB: Tried (above) with no real success or difference. Went another way (below) and got it to work 
+but I'm not sure I got all of the functionality out of the post call this way. It kind of feels like a workaround
+for some reason?
+*/
+$('#cats').append("<li>"+catName+"</li>");
+
+});
+
 });
 
 console.log(catString);
